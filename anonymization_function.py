@@ -20,3 +20,8 @@ anonymized_df['PhoneNumber'] = anonymized_df['PhoneNumber'].apply(hash_phone_num
 def hash_address(address):
     return hashlib.sha256(address.encode()).hexdigest()
 anonymized_df['Address'] = anonymized_df['Address'].apply(lambda x: hash_address(x))
+
+
+
+# save anonymized data
+anonymized_df.to_csv('anonymized_data.csv', index=False)
